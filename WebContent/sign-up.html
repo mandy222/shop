@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>My Shop</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FreeHTML5.co" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	
+
+  
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	
+	<script>
+		function check(){
+			if(form.uid.value==""){
+				alert("用户ID不能为空");
+				form.uid.focus();
+				return false;
+			}			
+			
+			if(form.uname.value==""){
+				alert("用户名不能为空");
+				form.uname.focus();
+				return false;
+			}
+			
+			if(form.password.value==""){
+				alert("用户密码不能为空");
+				form.password.focus();
+				return false;
+			}
+			
+			if(form.superuser.value==""){
+				alert("用户权限不能为空");
+				form.superuser.focus();
+				return false;
+			}
+			var regml = /^[1-2]?$/
+			if(!form.superuser.value.match(regml)){
+				alert("用户权限输入不合法，请输入1或2（1为普通用户；2为超级用户）");
+				form.superuser.focus();
+				return false;
+			}
+		}
+		
+		function createXmlHttpRequest(){
+		    var xmlreq = false;
+		    if (window.XMLHttpRequest){
+		        xmlreq = new XMLHttpRequest();
+		    }else
+		        if (window.ActiveXObject){
+		    	try{
+		    	    xmlreq = new ActiveXObject("Msxml2.XMLHTTP");
+		    	}catch(e1){
+		    	    try{
+		    	        xmlreq = new ActiveXObject("Microsoft.XMLHTTP");
+		    	    }catch(e2){
+		    	    }
+		    	}
+		    }
+		    return xmlreq;   	
+		}
+
+		function userNameCheck(){
+	        var request = createXmlHttpRequest();
+	        var uname = document.all.uname.value;
+	        request.open("post","nameCheckServlet?uname="+uname);
+	        request.send();
+	        request.onreadystatechange = function(){
+	    	if(request.readyState==4){
+	    	        var value = request.responseText;
+	    	        if(value=="true"){
+	    	                document.all.uname.value="该用户名已存在";
+	    	        }
+	        	}
+	        }
+		}		
+	</script>
+
+	</head>
+	<body>
+
+		<div class="container">
+			<div class="text-center">
+						<h3>小型购物系统</h3>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">					
+
+					<!-- Start Sign In Form -->
+					<form action="signUpServlet" name="form" class="fh5co-form animate-box" data-animate-effect="fadeIn">
+						<h2>Sign Up</h2>
+						<div class="form-group">
+							<div class="alert alert-success" role="alert">Your info has been saved.</div>
+						</div>
+						<div class="form-group">
+							<label for="uid" class="sr-only">UserId</label>
+							<input type="text" name="uid" class="form-control" id="uid" placeholder="UserId" autocomplete="off">
+						</div>
+						<div class="form-group">
+							<label for="uname" class="sr-only">Username</label>
+							<input type="text" name="uname" class="form-control" id="uname" placeholder="Username" autocomplete="off" onFocus="this.value ='';" onBlur="userNameCheck()">
+						</div>
+						<div class="form-group">
+							<label for="password" class="sr-only">Password</label>
+							<input type="password" name="password" class="form-control" id="password" placeholder="Password" autocomplete="off">
+						</div>
+						<div class="form-group">
+							<label for="superuser" class="sr-only">Superuser</label>
+							<input type="text" name="superuser" class="form-control" id="superuser" placeholder="Superuser(1/2)" autocomplete="off"> 
+						</div>
+						<div class="form-group">
+							<label for="remember"><input type="checkbox" id="remember"> Remember Me</label>
+						</div>
+						<div class="form-group">
+							<p>Already registered? <a href="index.html">Sign In</a></p>
+						</div>
+						<div class="form-group">
+							<input type="submit" onClick="return check()" value="Sign Up" class="btn btn-primary">
+						</div>
+					</form>
+					<!-- END Sign In Form -->
+
+				</div>
+			</div>
+		</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Placeholder -->
+	<script src="js/jquery.placeholder.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Main JS -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+

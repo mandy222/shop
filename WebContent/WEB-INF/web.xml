@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>shop</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  	
+  <!-- 20180412 mandy -->
+  	<servlet>
+  		<servlet-name>FirstServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.FirstServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>FirstServlet</servlet-name>
+  		<url-pattern>/FirstServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  <!-- 20180413 mandy -->
+  	<servlet>
+  		<servlet-name>LoginServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.LoginServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>LoginServlet</servlet-name>
+  		<url-pattern>/loginServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  <!-- 20180422 mandy -->>
+  	<filter>
+  		<filter-name>AuthorityFilter</filter-name>
+  		<filter-class>cn.edu.lingnan.filter.AuthorityFilter</filter-class>
+  	</filter>
+  	<filter-mapping>
+  		<filter-name>AuthorityFilter</filter-name>
+  		<url-pattern>/admin/*</url-pattern>
+  	</filter-mapping>
+  	
+   <!-- 20180422 mandy -->
+  	<servlet>
+  		<servlet-name>SignUpServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.SignUpServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>SignUpServlet</servlet-name>
+  		<url-pattern>/signUpServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  <!-- 20180422 mandy -->
+  	<servlet>
+  		<servlet-name>LogoutServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.LogoutServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>LogoutServlet</servlet-name>
+  		<url-pattern>/logoutServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  <!-- 20180505 mandy -->
+  	<servlet>
+  		<servlet-name>FindAllUserInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.FindAllUserInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>FindAllUserInfoServlet</servlet-name>
+  		<url-pattern>/admin/findAllUserInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>DeleteUserInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteUserInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteUserInfoServlet</servlet-name>
+  		<url-pattern>/admin/deleteUserInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>UpdateUserInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.UpdateUserInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>UpdateUserInfoServlet</servlet-name>
+  		<url-pattern>/admin/updateUserInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+   <!-- 20180508 mandy -->>
+  	<filter>
+  		<filter-name>CharacterEncodingFilter</filter-name>
+  		<filter-class>cn.edu.lingnan.filter.CharacterEncodingFilter</filter-class>
+  		<init-param>
+  			<description>干啥呢</description>
+  			<param-name>encoding</param-name>
+  			<param-value>UTF-8</param-value>
+  		</init-param>
+  	</filter>
+  	<filter-mapping>
+  		<filter-name>CharacterEncodingFilter</filter-name>
+  		<url-pattern>/*</url-pattern>
+  	</filter-mapping>
+  	
+  <!-- 20180511 mandy -->>	
+  	<jsp-config>
+  		<taglib>
+  			<taglib-uri>/mytagstest</taglib-uri>
+  			<taglib-location>/WEB-INF/tlds/myTags.tld</taglib-location>
+  		</taglib> 	
+  	 	
+  		<taglib>
+  			<taglib-uri>/jstlc</taglib-uri>
+  			<taglib-location>/WEB-INF/tlds/c.tld</taglib-location>
+  		</taglib>
+  		
+  		<taglib>
+  			<taglib-uri>/jstlsql</taglib-uri>
+  			<taglib-location>/WEB-INF/tlds/sql.tld</taglib-location>
+  		</taglib>  		
+  	</jsp-config>
+  
+  <!-- 20180525 mandy -->
+  	<servlet>
+  		<servlet-name>FindAllGoodsInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.FindAllGoodsInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>FindAllGoodsInfoServlet</servlet-name>
+  		<url-pattern>/admin/findAllGoodsInfoServlet</url-pattern>
+  	</servlet-mapping>
+  
+   <!-- 20180526 mandy -->
+  	<servlet>
+  		<servlet-name>DeleteCheckUserInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteCheckUserInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteCheckUserInfoServlet</servlet-name>
+  		<url-pattern>/admin/deleteCheckUserInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>NameCheckServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.NameCheckServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>NameCheckServlet</servlet-name>
+  		<url-pattern>/nameCheckServlet</url-pattern>
+  	</servlet-mapping>
+  
+   <!-- 20180527 mandy -->
+  	<servlet>
+  		<servlet-name>DeleteCheckGoodsInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteCheckGoodsInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteCheckGoodsInfoServlet</servlet-name>
+  		<url-pattern>/admin/deleteCheckGoodsInfoServlet</url-pattern>
+  	</servlet-mapping>	
+  	
+  	<servlet>
+  		<servlet-name>DeleteGoodsInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteGoodsInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteGoodsInfoServlet</servlet-name>
+  		<url-pattern>/admin/deleteGoodsInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>UpdateGoodsInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.UpdateGoodsInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>UpdateGoodsInfoServlet</servlet-name>
+  		<url-pattern>/admin/updateGoodsInfoServlet</url-pattern>
+  	</servlet-mapping>
+	
+	<servlet>
+  		<servlet-name>InsertGoodsInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.InsertGoodsInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>InsertGoodsInfoServlet</servlet-name>
+  		<url-pattern>/admin/insertGoodsInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  <!-- 20180505 mandy -->
+  	<servlet>
+  		<servlet-name>FindAllSaleInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.FindAllSaleInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>FindAllSaleInfoServlet</servlet-name>
+  		<url-pattern>/admin/findAllSaleInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  <!-- 20180601 mandy -->	
+  	<servlet>
+  		<servlet-name>DeleteCartInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteCartInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteCartInfoServlet</servlet-name>
+  		<url-pattern>/admin/deleteCartInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	 
+  	<servlet>
+  		<servlet-name>UpdateCartInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.UpdateCartInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>UpdateCartInfoServlet</servlet-name>
+  		<url-pattern>/admin/updateCartInfoServlet</url-pattern>
+  	</servlet-mapping>	
+  	
+  <!-- 20180602 mandy -->	
+  	<servlet>
+  		<servlet-name>DeleteCartItemInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteCartItemInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteCartItemInfoServlet</servlet-name>
+  		<url-pattern>/admin/deleteCartItemInfoServlet</url-pattern>
+  	</servlet-mapping> 	
+  
+  <!-- 20180603 mandy -->	
+  	<servlet>
+  		<servlet-name>UpdateCartItemInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.UpdateCartItemInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>UpdateCartItemInfoServlet</servlet-name>
+  		<url-pattern>/admin/updateCartItemInfoServlet</url-pattern>
+  	</servlet-mapping>  
+  	
+  	<servlet>
+  		<servlet-name>DeleteCheckCartInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteCheckCartInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteCheckCartInfoServlet</servlet-name>
+  		<url-pattern>/admin/deleteCheckCartInfoServlet</url-pattern>
+  	</servlet-mapping>	
+  	
+  	<servlet>
+  		<servlet-name>DeleteCheckCartItemInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteCheckCartItemInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteCheckCartItemInfoServlet</servlet-name>
+  		<url-pattern>/admin/deleteCheckCartItemInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>FindAllSaleStatInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.FindAllSaleStatInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>FindAllSaleStatInfoServlet</servlet-name>
+  		<url-pattern>/admin/findAllSaleStatInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>DeleteSaleStatInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteSaleStatInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteSaleStatInfoServlet</servlet-name>
+  		<url-pattern>/admin/deleteSaleStatInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>DeleteCheckSaleStatInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteCheckSaleStatInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteCheckSaleStatInfoServlet</servlet-name>
+  		<url-pattern>/admin/deleteCheckSaleStatInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>AddCartServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.AddCartServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>AddCartServlet</servlet-name>
+  		<url-pattern>/addCartServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  <!-- 20180605 mandy -->
+  	<servlet>
+  		<servlet-name>FindWatchCartInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.FindWatchCartInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>FindWatchCartInfoServlet</servlet-name>
+  		<url-pattern>/findWatchCartInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>UpdateWatchCartNumServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.UpdateWatchCartNumServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>UpdateWatchCartNumServlet</servlet-name>
+  		<url-pattern>/updateWatchCartNumServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  <!-- 20180606 mandy -->	
+  	<servlet>
+  		<servlet-name>DeleteWatchCartInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteWatchCartInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteWatchCartInfoServlet</servlet-name>
+  		<url-pattern>/deleteWatchCartInfoServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>DeleteCheckWatchCartInfoServlet</servlet-name>
+  		<servlet-class>cn.edu.lingnan.servlet.DeleteCheckWatchCartInfoServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>DeleteCheckWatchCartInfoServlet</servlet-name>
+  		<url-pattern>/deleteCheckWatchCartInfoServlet</url-pattern>
+  	</servlet-mapping>
+</web-app>
